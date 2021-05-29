@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="300">
+    <title>Nifty 50</title>
+    <style>
+        #customers {
+            font-family:  Helvetica;
+            border-collapse: collapse;
+
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 1px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+
+        }
+
+        #customers th {
+            padding-top: 2px;
+            padding-bottom: 2px;
+            background-color: #04AA6D;
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<table id="customers">
+    <tr><th colspan="10" >Top gainers</th></tr>
+    <tr>
+        <th>Symbol</th>
+        <th>LTP</th>
+        <th>% Change</th>
+        <th>Traded Qty</th>
+        <th>Traded Value (in Lakhs)</th>
+        <th>Open</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Prev. Close</th>
+        <th>Latest Ex Date</th>
+    </tr>
+    {% for item in gainer %}
+    <tr>
+        <td>{{ item.symbol }}</td>
+        <td>{{ item.ltp }}</td>
+        <td>{{ item.netPrice }}</td>
+        <td>{{ item.tradedQuantity }}</td>
+        <td>{{ item.turnoverInLakhs }}</td>
+        <td>{{ item.openPrice }}</td>
+        <td>{{ item.highPrice }}</td>
+        <td>{{ item.lowPrice }}</td>
+        <td>{{ item.previousPrice }}</td>
+        <td>{{ item.lastCorpAnnouncementDate }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br><hr><br>
+<table id="customers">
+    <tr><th colspan="10" >Top losers</th></tr>
+    <tr>
+        <th>Symbol</th>
+        <th>LTP</th>
+        <th>% Change</th>
+        <th>Traded Qty</th>
+        <th>Traded Value (in Lakhs)</th>
+        <th>Open</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Prev. Close</th>
+        <th>Latest Ex Date</th>
+    </tr>
+    {% for item in loser %}
+    <tr>
+        <td>{{ item.symbol }}</td>
+        <td>{{ item.ltp }}</td>
+        <td>{{ item.netPrice }}</td>
+        <td>{{ item.tradedQuantity }}</td>
+        <td>{{ item.turnoverInLakhs }}</td>
+        <td>{{ item.openPrice }}</td>
+        <td>{{ item.highPrice }}</td>
+        <td>{{ item.lowPrice }}</td>
+        <td>{{ item.previousPrice }}</td>
+        <td>{{ item.lastCorpAnnouncementDate }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
